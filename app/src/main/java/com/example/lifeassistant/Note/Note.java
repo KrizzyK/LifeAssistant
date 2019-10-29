@@ -1,4 +1,4 @@
-package Note;
+package com.example.lifeassistant.Note;
 
 import java.util.Date;
 
