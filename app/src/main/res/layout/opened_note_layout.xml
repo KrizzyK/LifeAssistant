@@ -13,7 +13,7 @@
         app:srcCompat="@android:drawable/ic_media_rew" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/noteTitle"
+        android:id="@+id/noteTitleOpenedLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
@@ -23,14 +23,14 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/noteTitleHint"
-            android:text="Note title"
+            android:text="Eluwa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="hint" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/noteContent"
+        android:id="@+id/noteContentOpenedLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -43,32 +43,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/bottomText"
+        android:id="@+id/noteModifiedDateOpened"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="Modified" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/modified"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="5dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/created"
+    <TextView
+        android:id="@+id/noteCreatedDateOpened"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingRight="5dp">
+        android:layout_height="wrap_content"
+        android:text="Created" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>

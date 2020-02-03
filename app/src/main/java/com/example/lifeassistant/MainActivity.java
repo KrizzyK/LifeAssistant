@@ -11,9 +11,7 @@ import com.example.lifeassistant.Note.Note;
 import com.example.lifeassistant.Note.NoteHolder;
 
 import java.util.ArrayList;
-///////////////////////////////////////////////// aby kafelki mialy odpowiedni rozmiar nalezy zrobic druga liste, ktora ma powiedzmy 100 liter
-///////////////////////////////////////////////// a potem to wsadzic jako liste w kazdy kafelek. wtedy wrap content bedzie dzialal poprawnie
-///////////////////////////////////////////////// dodatkowo dowiedz sie jak relatywnie rozmieszczac te obiekty na ekranie.
+
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerViewNotesList;
