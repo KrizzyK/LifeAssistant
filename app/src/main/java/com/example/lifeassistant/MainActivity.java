@@ -18,20 +18,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.lifeassistant.Note.Note;
-import com.example.lifeassistant.Note.NoteHolder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private FloatingActionButton addNoteButton;
     private RecyclerView recyclerViewNotesList;
     private RecyclerViewAdapter adapter;
-    private NoteHolder notes;
+    private List<Note> notes;
     private void initializeNotesList() {
-        notes = new NoteHolder(new LinkedList<Note>());
-        adapter = new RecyclerViewAdapter(notes.getList(), recyclerViewNotesList);
-        notes.addSomeRandomStuff();
+        notes = new LinkedList<>();
+        adapter = new RecyclerViewAdapter(notes, recyclerViewNotesList);
+        addSomeRandomStuff();
         recyclerViewNotesList.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         recyclerViewNotesList.setAdapter(adapter);
     }
@@ -62,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
 
             switch(requestCode) {
                 case 1: // new note
-                    notes.getList().add(0,returned);
+                    notes.add(0,returned);
                     adapter.notifyItemInserted(0);
                     break;
                 case 2: // changing existing one
-                    notes.getList().set(noteIndex, returned);
+                    notes.set(noteIndex, returned);
                     adapter.notifyItemChanged(noteIndex);
                     break;
             }
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 case 1: // new note
                     break;
                 case 2: // changing existing one
-                    notes.removeNote(noteIndex);;
+                    notes.remove(noteIndex);
                     adapter.notifyItemRemoved(noteIndex);
                     break;
             }
@@ -84,6 +84,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    }
+    public void addSomeRandomStuff() {
+        notes.add(new Note("Siema", "Nowa notka"));
+        notes.add(new Note("", ""));
+        notes.add(new Note("Siema3", "Nowa notkajeimhfsoeh sefuihefuisfeuigdszgzg ci bvnuisdhisdhfsuifmcsuihdfcsuimchuishmfcsuicmhfuishmcuifsmhcfuishmcfuishmcuihsdfmcuismhcfuishmcfsuihmcfuishmfcuismhcfuismhcfuismhfcuismhcfuismhcfuismhcuismhcfuismhcfsuimchfsuicmhfsiesiefih sreuifoemfeuicmehsuicfesomhcsefuicsefuiefhiufephefuimhcuiehmfceuihmceuichmeues"));
+        notes.add(new Note("Siema4", "Nowa notka"));
+        notes.add(new Note("Siema5", ""));
+        notes.add(new Note("", "Nowa notka"));
+        notes.add(new Note("Siema7", "Nowa notka"));
+        notes.add(new Note("Siema8nefismenimpfsiempjuifmjiespcjmeisocjfmiesjoie,jciescjsf,ieospcse,sopjsefcsece", "Nowa notka"));
+        notes.add(new Note("Siema9", "Nowa notka"));
+        notes.add(new Note("Siema10", "Nowa notka"));
+        notes.add(new Note("Siema11iaowp,jeaioj,ioe,jioefj,eioefj,iofej,esio,fsijpjsiofj,so", "Nowa notkaiadpo,wjwaioj,dwaioj,dsioaj,aods,ao"));
+        notes.add(new Note("Siema12", "Nowa notka"));
     }
 
 }
