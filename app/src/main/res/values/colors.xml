@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="primaryAppColor">#000000</color>
+    <color name="primaryAppDarkColor">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="noteColor">#1D1D1D</color>
+    <color name="backgroundColor">#131313</color>
+    <color name="textColor">#FFFF</color>
 </resources>

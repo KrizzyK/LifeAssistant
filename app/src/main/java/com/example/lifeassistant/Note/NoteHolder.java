@@ -23,6 +23,9 @@ public class NoteHolder {
     public void setList(ArrayList<Note> list) {
         this.list = list;
     }
+    public void setNote(int index, Note note) {
+        list.set(index, note);
+    }
     public void addSomeRandomStuff() {
         list.add(new Note("Siema", "Nowa notka"));
         list.add(new Note("", ""));
