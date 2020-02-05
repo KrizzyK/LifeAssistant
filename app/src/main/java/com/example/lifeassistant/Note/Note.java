@@ -12,7 +12,12 @@ public class Note implements Serializable {
     private Date createdDate;
 
 
-    public Note() {}
+    public Note() {
+        this.title = "";
+        this.content = "";
+        createdDate = new Date();
+        modifiedDate = new Date();
+    }
 
     public Note(String title, String content, Date modifiedDate, Date createdDate) {
         this.title = title;

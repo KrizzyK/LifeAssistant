@@ -1,11 +1,11 @@
 package com.example.lifeassistant.Note;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class NoteHolder {
-    private ArrayList<Note> list;
-
-    public NoteHolder(ArrayList<Note> list) {
+    //private ArrayList<Note> list;
+    private List<Note> list;
+    public NoteHolder(List<Note> list) {
         this.list = list;
     }
     public void addNote(Note note) {
@@ -17,10 +17,10 @@ public class NoteHolder {
     public void removeNote(int index) {
         list.remove(index);
     }
-    public ArrayList<Note> getList() {
+    public List<Note> getList() {
         return list;
     }
-    public void setList(ArrayList<Note> list) {
+    public void setList(List<Note> list) {
         this.list = list;
     }
     public void setNote(int index, Note note) {

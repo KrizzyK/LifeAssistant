@@ -39,8 +39,7 @@ public class OpenedNoteActivity extends AppCompatActivity {
                 opened_note.setModifiedDate( new Date() );
                 intent.putExtra("passedNote", opened_note);
                 intent.putExtra("noteIndex", changingNoteIndex);
-                setResult(1, intent);
-                //Log.i("OpenedNoteActivity:","DATA= "+ intent.getIntExtra("noteIndex", 0));
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });
