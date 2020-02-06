@@ -1,31 +1,46 @@
 package com.example.lifeassistant.Note;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@Entity
 public class Note implements Serializable {
+    @PrimaryKey//(autoGenerate = true)
+    public int noteIndex;
+    @ColumnInfo(name = "title")
     private String title;
+    @ColumnInfo(name = "content")
     private String content;
+    @TypeConverters(DateConverter.class)
+    @ColumnInfo(name = "modifiedDate")
     private Date modifiedDate;
+    @TypeConverters(DateConverter.class)
+    @ColumnInfo(name = "createdDate")
     private Date createdDate;
 
-
+    @Ignore
     public Note() {
-        this.title = "";
-        this.content = "";
-        createdDate = new Date();
-        modifiedDate = new Date();
     }
 
-    public Note(String title, String content, Date modifiedDate, Date createdDate) {
+
+
+
+    public Note(int noteIndex, String title, String content, Date modifiedDate, Date createdDate) {
+        this.noteIndex = noteIndex;
         this.title = title;
         this.content = content;
         this.modifiedDate = modifiedDate;
         this.createdDate = createdDate;
     }
-
+    @Ignore
     public Note(String title, String content) {
         this.title = title;
         this.content = content;
@@ -37,7 +52,7 @@ public class Note implements Serializable {
         titlex = title.substring(0, (title.length() < 35 ? title.length() : 35));
         int contentxlen = 200 - titlex.length();
         contentx = content.substring(0, content.length() < contentxlen ? content.length() : contentxlen);
-        return new Note(titlex, contentx, modifiedDate, createdDate);
+        return new Note(noteIndex,titlex, contentx, modifiedDate, createdDate);
     }
 
     public String getTitle() {
@@ -56,9 +71,17 @@ public class Note implements Serializable {
         this.content = content;
     }
 
-    public String getModifiedDate() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        return dateFormat.format(modifiedDate);
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public String getModifiedDateToString() {
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        return df.format(modifiedDate);
+    }
+    public String getCreatedDateToString() {
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        return df.format(createdDate);
     }
 
     public void setModifiedDate(Date modifiedDate) {
