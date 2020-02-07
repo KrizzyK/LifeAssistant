@@ -12,6 +12,7 @@ package com.example.lifeassistant;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -46,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.note_main);
-
         recyclerViewNotesList = (RecyclerView) findViewById(R.id.mainRecyclerView);
         addNoteButton = (FloatingActionButton) findViewById(R.id.addNoteButton);
         addNoteButton.setOnClickListener(new View.OnClickListener() {
@@ -69,12 +69,12 @@ public class MainActivity extends AppCompatActivity {
             switch(requestCode) {
                 case 1: // new note
                     notes.add(0,returned);
-                    database.noteDao().insert(returned);
+                    new SaveNote().execute(returned);
                     adapter.notifyItemInserted(0);
                     break;
                 case 2: // changing existing one
                     notes.set(noteIndex, returned);
-                    database.noteDao().update(returned);
+                    new UpdateNote().execute(returned);
                     adapter.notifyItemChanged(noteIndex);
                     break;
             }
@@ -85,34 +85,59 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 2: // deleting existing one
                     notes.remove(noteIndex);
-                    database.noteDao().delete(returned);
+                    //database.noteDao().delete(returned);
+                    new DeleteNote().execute(returned);
                     adapter.notifyItemRemoved(noteIndex);
                     break;
             }
             Toast.makeText(this, "Deleted note.", Toast.LENGTH_SHORT).show();
         }
+    }
+    class SaveNote extends AsyncTask<Note, Void, Void> {
+        @Override
+        protected Void doInBackground(Note... notes) {
+            for (int i = 0; i < notes.length; i++) {
+                database.noteDao().insert(notes[i]);
+            }
+            return null;
+        }
+    }
+    class UpdateNote extends AsyncTask<Note, Void, Void> {
+        @Override
+        protected Void doInBackground(Note... notes) {
+            for (int i = 0; i < notes.length; i++) {
+                database.noteDao().update(notes[i]);
+            }
+            return null;
+        }
+    }
+    class DeleteNote extends AsyncTask<Note, Void, Void> {
+        @Override
+        protected Void doInBackground(Note... notes) {
+            for (int i = 0; i < notes.length; i++) {
+                database.noteDao().delete(notes[i]);
+            }
+            return null;
+        }
+    }
+    class GetNotes extends AsyncTask<Note, Void, List<Note> > {
+        @Override
+        protected List<Note> doInBackground(Note... notes) {
+            List<Note> list = new LinkedList<Note>();
+            for (int i = 0; i < notes.length; i++) {
+                list.addAll(database.noteDao().getAll());
+            }
+            return list;
+        }
+
+        @Override
+        protected void onPostExecute(List<Note> notes) {
+            super.onPostExecute(notes);
+            adapter.notifyDataSetChanged();
+        }
+    }
 
 
-    }
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
 
-        //Toast.makeText(this, "Koncze", Toast.LENGTH_SHORT).show();
-    }
-    public void addSomeRandomStuff() {
-        notes.add(new Note("Siema", "Nowa notka"));
-        notes.add(new Note("", ""));
-        notes.add(new Note("Siema3", "Nowa notkajeimhfsoeh sefuihefuisfeuigdszgzg ci bvnuisdhisdhfsuifmcsuihdfcsuimchuishmfcsuicmhfuishmcuifsmhcfuishmcfuishmcuihsdfmcuismhcfuishmcfsuihmcfuishmfcuismhcfuismhcfuismhfcuismhcfuismhcfuismhcuismhcfuismhcfsuimchfsuicmhfsiesiefih sreuifoemfeuicmehsuicfesomhcsefuicsefuiefhiufephefuimhcuiehmfceuihmceuichmeues"));
-        notes.add(new Note("Siema4", "Nowa notka"));
-        notes.add(new Note("Siema5", ""));
-        notes.add(new Note("", "Nowa notka"));
-        notes.add(new Note("Siema7", "Nowa notka"));
-        notes.add(new Note("Siema8nefismenimpfsiempjuifmjiespcjmeisocjfmiesjoie,jciescjsf,ieospcse,sopjsefcsece", "Nowa notka"));
-        notes.add(new Note("Siema9", "Nowa notka"));
-        notes.add(new Note("Siema10", "Nowa notka"));
-        notes.add(new Note("Siema11iaowp,jeaioj,ioe,jioefj,eioefj,iofej,esio,fsijpjsiofj,so", "Nowa notkaiadpo,wjwaioj,dwaioj,dsioaj,aods,ao"));
-        notes.add(new Note("Siema12", "Nowa notka"));
-    }
 
 }
