@@ -11,10 +11,10 @@ import java.util.List;
 
 @Dao
 public interface NoteDao {
-    @Query("SELECT * FROM Note")
+    @Query("SELECT * FROM Note ORDER BY createdDate DESC")
     List<Note> getAll();
-    @Query("SELECT * FROM Note WHERE noteIndex LIKE :id ")
-    Note selectById(int id);
+    @Query("SELECT * FROM Note WHERE createdDate LIKE :xcreatedDate ")
+    Note selectById(String xcreatedDate); // id = createddate
     @Delete
     public void delete(Note note);
     @Update
@@ -22,6 +22,6 @@ public interface NoteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insert(Note ... notes);
 
-    //@Insert
+
 
 }

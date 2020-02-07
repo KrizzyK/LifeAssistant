@@ -13,8 +13,8 @@ import java.util.Date;
 
 @Entity
 public class Note implements Serializable {
-    @PrimaryKey//(autoGenerate = true)
-    public int noteIndex;
+    //@PrimaryKey//(autoGenerate = true)
+    //public int noteIndex;
     @ColumnInfo(name = "title")
     private String title;
     @ColumnInfo(name = "content")
@@ -23,7 +23,8 @@ public class Note implements Serializable {
     @ColumnInfo(name = "modifiedDate")
     private Date modifiedDate;
     @TypeConverters(DateConverter.class)
-    @ColumnInfo(name = "createdDate")
+    //@ColumnInfo(name = "createdDate")
+    @PrimaryKey
     private Date createdDate;
 
     @Ignore
@@ -33,8 +34,8 @@ public class Note implements Serializable {
 
 
 
-    public Note(int noteIndex, String title, String content, Date modifiedDate, Date createdDate) {
-        this.noteIndex = noteIndex;
+    public Note(String title, String content, Date modifiedDate, Date createdDate) {
+        //this.noteIndex = noteIndex;
         this.title = title;
         this.content = content;
         this.modifiedDate = modifiedDate;
@@ -52,7 +53,7 @@ public class Note implements Serializable {
         titlex = title.substring(0, (title.length() < 35 ? title.length() : 35));
         int contentxlen = 200 - titlex.length();
         contentx = content.substring(0, content.length() < contentxlen ? content.length() : contentxlen);
-        return new Note(noteIndex,titlex, contentx, modifiedDate, createdDate);
+        return new Note(titlex, contentx, modifiedDate, createdDate);
     }
 
     public String getTitle() {
