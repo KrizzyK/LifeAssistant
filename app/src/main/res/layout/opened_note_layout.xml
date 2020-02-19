@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -46,10 +47,10 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/noteTitleHint"
-            android:text="Eluwa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="Note title"
+            android:textColor="@color/textColor"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -61,7 +62,8 @@
             android:id="@+id/noteContentHint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Note Content" />
+            android:hint="Note Content"
+            android:textColor="@color/textColor"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

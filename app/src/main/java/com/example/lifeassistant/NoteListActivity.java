@@ -29,7 +29,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class NoteListActivity extends AppCompatActivity {
     private FloatingActionButton addNoteButton;
     private RecyclerView recyclerViewNotesList;
     private RecyclerViewAdapter adapter;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.note_main);
+        setContentView(R.layout.main_drawer_layout);
         recyclerViewNotesList = (RecyclerView) findViewById(R.id.mainRecyclerView);
         addNoteButton = (FloatingActionButton) findViewById(R.id.addNoteButton);
         addNoteButton.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 2: // deleting existing one
                     notes.remove(noteIndex);
-                    //database.noteDao().delete(returned);
                     new DeleteNote().execute(returned);
                     adapter.notifyItemRemoved(noteIndex);
                     break;

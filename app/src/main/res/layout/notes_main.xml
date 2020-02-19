@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".NoteListActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addNoteButton"
@@ -29,7 +29,7 @@
             android:id="@+id/mainRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#CDDC39"
+            android:background="@color/backgroundColor"
             android:clipToPadding="true"
             android:paddingLeft="5dp"
             android:paddingTop="5dp"
