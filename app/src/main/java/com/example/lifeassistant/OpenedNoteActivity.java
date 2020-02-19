@@ -40,18 +40,21 @@ public class OpenedNoteActivity extends AppCompatActivity {
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { // zakonczenie tego ekranu
-                Intent intent = new Intent();
-                intent.putExtra("noteIndex", changingNoteIndex);
-                opened_note.setTitle( titlex.getText().toString() );
-                opened_note.setContent( contentx.getText().toString() );
-                opened_note.setModifiedDate( new Date() );
-                if(!opened_note.getTitle().isEmpty() || !opened_note.getContent().isEmpty()) {
-                    intent.putExtra("passedNote", opened_note);
-                    setResult(RESULT_OK, intent);
-                } else setResult(RESULT_FIRST_USER, intent); // empty note, gonna delete that one
-                finish();
+                backToNoteList();
             }
         });
+    }
+    private void backToNoteList() {
+        Intent intent = new Intent();
+        intent.putExtra("noteIndex", changingNoteIndex);
+        opened_note.setTitle( titlex.getText().toString() );
+        opened_note.setContent( contentx.getText().toString() );
+        opened_note.setModifiedDate( new Date() );
+        if(!opened_note.getTitle().isEmpty() || !opened_note.getContent().isEmpty()) {
+            intent.putExtra("passedNote", opened_note);
+            setResult(RESULT_OK, intent);
+        } else setResult(RESULT_FIRST_USER, intent); // empty note, gonna delete that one
+        finish();
     }
     private void initializeDeleteButton() {
         deleteButton.setOnClickListener(new View.OnClickListener() {
@@ -80,5 +83,10 @@ public class OpenedNoteActivity extends AppCompatActivity {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        backToNoteList();
     }
 }

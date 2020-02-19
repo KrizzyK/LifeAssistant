@@ -136,7 +136,8 @@ public class NoteListActivity extends AppCompatActivity {
         }
     }
 
-
-
-
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }

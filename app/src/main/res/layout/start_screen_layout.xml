@@ -3,11 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="Hello, it's a starting screen"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:textColor="@color/textColor"/>
+
+    <Button
+        android:id="@+id/startToNotesButton"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:background="@color/primaryAppDarkColor"
+        android:text="Go To Notes"
+        android:textColor="@color/textColor" />
 
 </LinearLayout>
