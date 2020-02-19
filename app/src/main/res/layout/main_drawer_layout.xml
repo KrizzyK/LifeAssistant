@@ -9,11 +9,19 @@
     tools:openDrawer="start"
     android:background="@color/cardview_light_background">
 
-    <include
-        layout="@layout/main"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include
+            layout="@layout/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/content_frame"></FrameLayout>
+    </LinearLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"

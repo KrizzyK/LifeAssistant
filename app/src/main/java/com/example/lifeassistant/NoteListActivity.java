@@ -5,7 +5,7 @@ https://stackoverflow.com/questions/2736389/how-to-pass-an-object-from-one-activ
 https://developer.android.com/training/data-storage
 https://developer.android.com/training/data-storage/room
 https://www.androidauthority.com/how-to-store-data-locally-in-android-app-717190/
-
+https://stackoverflow.com/questions/36095691/android-navigationdrawer-multiple-activities-same-menu // to do drawer layout w wszystkich oknach
 
 */
 package com.example.lifeassistant;
@@ -15,9 +15,9 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.room.Room;
@@ -29,7 +29,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.LinkedList;
 import java.util.List;
 
-public class NoteListActivity extends AppCompatActivity {
+public class NoteListActivity extends BaseDrawerActivity {
     private FloatingActionButton addNoteButton;
     private RecyclerView recyclerViewNotesList;
     private RecyclerViewAdapter adapter;
@@ -46,7 +46,8 @@ public class NoteListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_drawer_layout);
+        FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
+        getLayoutInflater().inflate(R.layout.notes_main, contentFrameLayout);
         recyclerViewNotesList = (RecyclerView) findViewById(R.id.mainRecyclerView);
         addNoteButton = (FloatingActionButton) findViewById(R.id.addNoteButton);
         addNoteButton.setOnClickListener(new View.OnClickListener() {

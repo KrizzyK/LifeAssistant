@@ -4,24 +4,26 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lifeassistant.Note.Note;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Date;
 
-public class OpenedNoteActivity extends AppCompatActivity {
+public class OpenedNoteActivity extends BaseDrawerActivity {
     private Note opened_note;
     private int changingNoteIndex;
     private ImageButton back_button, deleteButton;
     private TextInputEditText titlex, contentx;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.opened_note_layout);
+        //setContentView(R.layout.opened_note_layout);
+        FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
+        getLayoutInflater().inflate(R.layout.opened_note_layout, contentFrameLayout);
         back_button = (ImageButton) findViewById(R.id.backButton);
         deleteButton = (ImageButton) findViewById(R.id.deleteButton);
         titlex = (TextInputEditText) findViewById(R.id.noteTitleHint);
