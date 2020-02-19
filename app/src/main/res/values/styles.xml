@@ -11,6 +11,8 @@
         <item name="colorPrimary">@color/primaryAppColor</item>
         <item name="colorPrimaryDark">@color/primaryAppDarkColor</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:itemTextAppearance">@color/textColor</item>
     </style>
 
 </resources>

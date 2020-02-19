@@ -8,6 +8,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.lifeassistant.Note.Note;
 import com.google.android.material.textfield.TextInputEditText;
@@ -21,7 +23,6 @@ public class OpenedNoteActivity extends BaseDrawerActivity {
     private TextInputEditText titlex, contentx;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.opened_note_layout);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.opened_note_layout, contentFrameLayout);
         back_button = (ImageButton) findViewById(R.id.backButton);
@@ -89,6 +90,12 @@ public class OpenedNoteActivity extends BaseDrawerActivity {
 
     @Override
     public void onBackPressed() {
-        backToNoteList();
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawers();
+        } else {
+            backToNoteList();
+        }
+
     }
 }

@@ -1,13 +1,3 @@
-/* important links
-https://stackoverflow.com/questions/31367599/how-to-update-recyclerview-adapter-data
-https://stackoverflow.com/questions/21974361/which-java-collection-should-i-use
-https://stackoverflow.com/questions/2736389/how-to-pass-an-object-from-one-activity-to-another-on-android -> Bundle method (y)
-https://developer.android.com/training/data-storage
-https://developer.android.com/training/data-storage/room
-https://www.androidauthority.com/how-to-store-data-locally-in-android-app-717190/
-https://stackoverflow.com/questions/36095691/android-navigationdrawer-multiple-activities-same-menu // to do drawer layout w wszystkich oknach
-
-*/
 package com.example.lifeassistant;
 
 import android.app.Activity;
@@ -35,13 +25,6 @@ public class NoteListActivity extends BaseDrawerActivity {
     private RecyclerViewAdapter adapter;
     private List<Note> notes;
     private NoteDatabase database;
-    private void initializeNotesList() {
-        database = Room.databaseBuilder(this,NoteDatabase.class,"notes").allowMainThreadQueries().build();
-        notes = new LinkedList<>(database.noteDao().getAll()); // getting data from database
-        adapter = new RecyclerViewAdapter(notes, recyclerViewNotesList);
-        recyclerViewNotesList.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        recyclerViewNotesList.setAdapter(adapter);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +76,13 @@ public class NoteListActivity extends BaseDrawerActivity {
             Toast.makeText(this, "Deleted note.", Toast.LENGTH_SHORT).show();
         }
     }
+    private void initializeNotesList() {
+        database = Room.databaseBuilder(this,NoteDatabase.class,"notes").allowMainThreadQueries().build();
+        notes = new LinkedList<>(database.noteDao().getAll()); // getting data from database
+        adapter = new RecyclerViewAdapter(notes, recyclerViewNotesList);
+        recyclerViewNotesList.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        recyclerViewNotesList.setAdapter(adapter);
+    }
     class SaveNote extends AsyncTask<Note, Void, Void> {
         @Override
         protected Void doInBackground(Note... notes) {
@@ -139,6 +129,6 @@ public class NoteListActivity extends BaseDrawerActivity {
 
     @Override
     public void onBackPressed() {
-        finish();
+        super.onBackPressed();
     }
 }
