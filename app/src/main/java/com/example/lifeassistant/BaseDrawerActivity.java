@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -46,10 +45,11 @@ public class BaseDrawerActivity extends AppCompatActivity { // drawer and naviga
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()) {
-                    case R.id.item1:
-                        Toast.makeText(BaseDrawerActivity.this, "Hehe dziala", Toast.LENGTH_SHORT).show();
+                    case R.id.notes:
+                        startActivity(new Intent(getApplicationContext(),NoteListActivity.class));
                         break;
-                    case R.id.item2:
+                    case R.id.startingScreen:
+                        startActivity(new Intent(getApplicationContext(),BaseDrawerActivity.class));
                         break;//....
 
                 }

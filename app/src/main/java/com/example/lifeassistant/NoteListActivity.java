@@ -37,7 +37,7 @@ public class NoteListActivity extends BaseDrawerActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), OpenedNoteActivity.class);
-                intent.putExtra("passedNote",new Note());
+                intent.putExtra("passedNote",new Note("",""));
                 intent.putExtra("noteIndex", 0);
                 ((Activity)view.getContext()).startActivityForResult(intent, 1); // new note -> 1
             }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.GravityCompat;
@@ -21,6 +22,7 @@ public class OpenedNoteActivity extends BaseDrawerActivity {
     private int changingNoteIndex;
     private ImageButton back_button, deleteButton;
     private TextInputEditText titlex, contentx;
+    private TextView modified, created;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
@@ -29,6 +31,8 @@ public class OpenedNoteActivity extends BaseDrawerActivity {
         deleteButton = (ImageButton) findViewById(R.id.deleteButton);
         titlex = (TextInputEditText) findViewById(R.id.noteTitleHint);
         contentx = (TextInputEditText) findViewById(R.id.noteContentHint);
+        modified = (TextView) findViewById(R.id.noteModifiedDateOpened);
+        created = (TextView) findViewById(R.id.noteCreatedDateOpened);
         initializeNote();
         initializeBackButton();
         initializeDeleteButton();
@@ -38,6 +42,8 @@ public class OpenedNoteActivity extends BaseDrawerActivity {
         changingNoteIndex = getIntent().getIntExtra("noteIndex", 0);
         titlex.setText(opened_note.getTitle());
         contentx.setText(opened_note.getContent());
+        modified.setText(opened_note.getModifiedDateToString());
+        created.setText(opened_note.getCreatedDateToString());
     }
     private void initializeBackButton() {
         back_button.setOnClickListener(new View.OnClickListener() {
