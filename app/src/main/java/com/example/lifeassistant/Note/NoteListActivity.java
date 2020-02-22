@@ -1,4 +1,4 @@
-package com.example.lifeassistant;
+package com.example.lifeassistant.Note;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,8 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.room.Room;
 
-import com.example.lifeassistant.Note.Note;
-import com.example.lifeassistant.Note.NoteDatabase;
+import com.example.lifeassistant.BaseDrawerActivity;
+import com.example.lifeassistant.Note.RoomDatabase.NoteDatabase;
+import com.example.lifeassistant.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.LinkedList;
@@ -76,8 +77,14 @@ public class NoteListActivity extends BaseDrawerActivity {
             Toast.makeText(this, "Deleted note.", Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
     private void initializeNotesList() {
-        database = Room.databaseBuilder(this,NoteDatabase.class,"notes").allowMainThreadQueries().build();
+        database = Room.databaseBuilder(this, NoteDatabase.class,"notes").allowMainThreadQueries().build();
         notes = new LinkedList<>(database.noteDao().getAll()); // getting data from database
         adapter = new RecyclerViewAdapter(notes, recyclerViewNotesList);
         recyclerViewNotesList.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
@@ -127,8 +134,4 @@ public class NoteListActivity extends BaseDrawerActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
 }

@@ -1,4 +1,4 @@
-package com.example.lifeassistant;
+package com.example.lifeassistant.Note;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,7 +12,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.lifeassistant.Note.Note;
+import com.example.lifeassistant.BaseDrawerActivity;
+import com.example.lifeassistant.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Date;

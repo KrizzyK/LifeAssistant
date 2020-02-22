@@ -1,4 +1,4 @@
-package com.example.lifeassistant;
+package com.example.lifeassistant.Note;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.lifeassistant.Note.Note;
+import com.example.lifeassistant.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
         // tworzymy layout notki oraz obiekt ViewHoldera
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.single_note_layout, parent, false);
-        view.setOnClickListener(new OnClickListener() {
+                view.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) { // kiedy wciskamy notatke, przechodze do nowego Activity ( otwarta notatka )
                 int itemPosition = mRecyclerView.getChildLayoutPosition(view);

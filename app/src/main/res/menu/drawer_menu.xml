@@ -10,9 +10,9 @@
         <item android:title="Home"
             android:icon="@drawable/abc_vector_test"
             android:id="@+id/startingScreen"/>
-        <item android:title="Item3"
+        <item android:title="Counters"
             android:icon="@color/colorAccent"
-            android:id="@+id/item3"/>
+            android:id="@+id/counters"/>
     </group>
 
     <item android:title="Druga grupa">

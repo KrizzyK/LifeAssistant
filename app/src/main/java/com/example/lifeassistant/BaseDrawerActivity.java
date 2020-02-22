@@ -13,9 +13,6 @@ package com.example.lifeassistant;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,10 +22,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.lifeassistant.Counter.CounterActivity;
+import com.example.lifeassistant.Note.NoteListActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class BaseDrawerActivity extends AppCompatActivity { // drawer and navigationView code here
-    private Button goToNotesActivity;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
@@ -46,27 +44,20 @@ public class BaseDrawerActivity extends AppCompatActivity { // drawer and naviga
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()) {
                     case R.id.notes:
-                        startActivity(new Intent(getApplicationContext(),NoteListActivity.class));
+                        startActivity(new Intent(getApplicationContext(), NoteListActivity.class));
                         break;
                     case R.id.startingScreen:
                         startActivity(new Intent(getApplicationContext(),BaseDrawerActivity.class));
-                        break;//....
+                        break;
+                    case R.id.counters:
+                        startActivity(new Intent(getApplicationContext(), CounterActivity.class));
+                        break;
 
                 }
                 drawerLayout.closeDrawers();
                 return false;
             }
         });
-        FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
-        getLayoutInflater().inflate(R.layout.start_screen_layout, contentFrameLayout);
-        goToNotesActivity = (Button) findViewById(R.id.startToNotesButton);
-        goToNotesActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(view.getContext(),NoteListActivity.class));
-            }
-        });
-
     }
 
     @Override
