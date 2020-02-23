@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CounterActivity extends BaseDrawerActivity {
-
     private RecyclerView counterRecyclerView;
     CounterRecAdapter counterRecAdapter;
     List<Counter> counterList;

@@ -8,23 +8,71 @@
     app:cardBackgroundColor="@color/counterColor"
     app:cardCornerRadius="5dp"
     app:cardElevation="2dp"> <!--ale dziwny komentarz, no nie? No w kazdym razie ta opcja powoduje ze notatki sie nie zlewaja -->
-
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        >
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
             android:id="@+id/counterName"
-            android:textColor="@color/textColor"/>
-        <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/counterCount"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor"
+            android:textSize="40sp"
+            android:textStyle="italic"
+            android:layout_toLeftOf="@+id/centerLinear"/>
+        <LinearLayout
+            android:id="@+id/centerLinear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toLeftOf="@+id/theRightOne"
+            android:paddingRight="8dp">
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/addCountButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/plusv2" />
+
+            <TextView
+                android:id="@+id/counterCount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/textColor"
+                android:textSize="40sp"
+                android:textAlignment="center"
+                android:textStyle="bold"/>
+
+            <ImageButton
+                android:id="@+id/decCountButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/minusv2" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/theRightOne"
+            android:layout_alignParentRight="true">
+            <ImageButton
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/trashwhite"/>
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="right"
+                android:background="@drawable/editbuttonwhite"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
 
 </androidx.cardview.widget.CardView>

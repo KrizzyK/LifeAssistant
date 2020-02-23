@@ -10,12 +10,9 @@ class Counter {
     public void increment() {
         count++;
     }
-    public void decrement() {
-        count--;
-    }
-    public void setToZero() {
-        count = 0;
-    }
+    public void decrement() { count--; }
+    public void setToZero() { count = 0; }
+
     public int getCount() {
         return count;
     }

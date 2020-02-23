@@ -3,6 +3,7 @@ package com.example.lifeassistant.Counter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,10 +25,14 @@ public class CounterRecAdapter extends RecyclerView.Adapter {
     private class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView counterName;
         public TextView counterCount;
+        public ImageButton incButton;
+        public ImageButton decButton;
         public MyViewHolder(View pItem) {
             super(pItem);
             counterName = pItem.findViewById(R.id.counterName);
             counterCount = pItem.findViewById(R.id.counterCount);
+            incButton = pItem.findViewById(R.id.addCountButton);
+            decButton = pItem.findViewById(R.id.decCountButton);
         }
     }
     @NonNull
@@ -48,8 +53,8 @@ public class CounterRecAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) { // ustawianie parametrow countera w widoku
         Counter counter = counterList.get(position);
-        ((MyViewHolder) holder).counterCount.setText(counter.getName());
-        ((MyViewHolder) holder).counterName.setText( Integer.toString(counter.getCount()) );
+        ((MyViewHolder) holder).counterName.setText(counter.getName());
+        ((MyViewHolder) holder).counterCount.setText( Integer.toString(counter.getCount()) );
     }
 
     @Override
