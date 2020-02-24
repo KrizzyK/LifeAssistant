@@ -23,7 +23,7 @@ import java.util.List;
 public class NoteListActivity extends BaseDrawerActivity {
     private FloatingActionButton addNoteButton;
     private RecyclerView recyclerViewNotesList;
-    private RecyclerViewAdapter adapter;
+    private NoteRecAdapter adapter;
     private List<Note> notes;
     private NoteDatabase database;
 
@@ -86,7 +86,7 @@ public class NoteListActivity extends BaseDrawerActivity {
     private void initializeNotesList() {
         database = Room.databaseBuilder(this, NoteDatabase.class,"notes").allowMainThreadQueries().build();
         notes = new LinkedList<>(database.noteDao().getAll()); // getting data from database
-        adapter = new RecyclerViewAdapter(notes, recyclerViewNotesList);
+        adapter = new NoteRecAdapter(notes, recyclerViewNotesList);
         recyclerViewNotesList.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         recyclerViewNotesList.setAdapter(adapter);
     }

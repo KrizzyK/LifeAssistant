@@ -75,14 +75,14 @@ public class OpenedNoteActivity extends BaseDrawerActivity {
         });
     }
     private void deleteDialog(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-        builder.setTitle("Delete this?");
-        builder.setMessage("Are you sure you want to delete this note?");
+        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext(), R.style.ThemeDialogCustom);
+        builder.setTitle("Are you sure you want to delete the note?");
         builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 setResult(RESULT_FIRST_USER, getIntent());
                 finish();
+                dialogInterface.dismiss();
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

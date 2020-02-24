@@ -47,7 +47,7 @@ public class BaseDrawerActivity extends AppCompatActivity { // drawer and naviga
                         startActivity(new Intent(getApplicationContext(), NoteListActivity.class));
                         break;
                     case R.id.startingScreen:
-                        startActivity(new Intent(getApplicationContext(),BaseDrawerActivity.class));
+                        startActivity(new Intent(getApplicationContext(),StartScreenActivity.class));
                         break;
                     case R.id.counters:
                         startActivity(new Intent(getApplicationContext(), CounterActivity.class));

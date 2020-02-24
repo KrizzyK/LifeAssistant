@@ -17,12 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter {
+public class NoteRecAdapter extends RecyclerView.Adapter {
 
     private List<Note> notesList = new ArrayList<>();
     private RecyclerView mRecyclerView;
 
-    public RecyclerViewAdapter(List<Note> notesList, RecyclerView mRecyclerView) {
+    public NoteRecAdapter(List<Note> notesList, RecyclerView mRecyclerView) {
         this.notesList = notesList;
         this.mRecyclerView = mRecyclerView;
     }
@@ -69,7 +69,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
         ((MyViewHolder) holder).title.setText(article.getClusteredNote().getTitle());
         ((MyViewHolder) holder).content.setText(article.getClusteredNote().getContent());
         ((MyViewHolder) holder).modifiedDate.setText(article.getModifiedDateToString());
-        //((MyViewHolder) holder).createdDate.setText(article.getCreatedDateToString());
     }
 
     @Override

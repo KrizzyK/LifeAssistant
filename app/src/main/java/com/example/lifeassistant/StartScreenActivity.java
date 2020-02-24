@@ -17,7 +17,6 @@ public class StartScreenActivity extends BaseDrawerActivity {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.start_screen_layout, contentFrameLayout);
-
         goToNotesButton = (Button) findViewById(R.id.startToNotesButton);
         goToNotesButton.setOnClickListener(new View.OnClickListener() {
             @Override
