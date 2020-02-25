@@ -1,6 +1,7 @@
 package com.example.lifeassistant.Counter;
 
 import android.content.DialogInterface;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lifeassistant.Counter.CounterDatabase.CounterDatabase;
 import com.example.lifeassistant.R;
 
 import java.util.ArrayList;
@@ -20,13 +22,15 @@ import java.util.List;
 public class CounterRecAdapter extends RecyclerView.Adapter {
     List<Counter> counterList = new ArrayList<>();
     RecyclerView mRecyclerView;
+    public CounterDatabase database;
 
     public EditText counterName; // editDialog variables
     public EditText counterCount; // needed them to be public
 
-    public CounterRecAdapter(List<Counter> counterList, RecyclerView mRecyclerView) {
+    public CounterRecAdapter(List<Counter> counterList, RecyclerView mRecyclerView, CounterDatabase database) {
         this.counterList = counterList;
         this.mRecyclerView = mRecyclerView;
+        this.database = database;
     }
 
     private class MyViewHolder extends RecyclerView.ViewHolder {
@@ -94,6 +98,12 @@ public class CounterRecAdapter extends RecyclerView.Adapter {
             }
         });
     }
+
+    @Override
+    public int getItemCount() {
+        return counterList.size();
+    }
+
     private void makeEditDialog(View view, final int positionInList) {
         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext(), R.style.ThemeDialogCustom);
         builder.setTitle("Edit the counter:");
@@ -128,6 +138,7 @@ public class CounterRecAdapter extends RecyclerView.Adapter {
         builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                new DeleteCounter().execute(counterList.get(position));
                 counterList.remove(position);
                 notifyItemRemoved(position);
                 dialogInterface.dismiss();
@@ -144,8 +155,13 @@ public class CounterRecAdapter extends RecyclerView.Adapter {
         alertDialog.show();
     }
 
-    @Override
-    public int getItemCount() {
-        return counterList.size();
+    class DeleteCounter extends AsyncTask<Counter, Void, Void> {
+        @Override
+        protected Void doInBackground(Counter... counters) {
+            database.counterDao().delete(counters);
+            return null;
+        }
     }
+
 }
+

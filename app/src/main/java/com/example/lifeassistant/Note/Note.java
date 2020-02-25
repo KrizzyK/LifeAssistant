@@ -6,7 +6,7 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-import com.example.lifeassistant.Note.RoomDatabase.DateConverter;
+import com.example.lifeassistant.Note.NoteDatabase.DateConverter;
 
 import java.io.Serializable;
 import java.text.DateFormat;
@@ -37,7 +37,6 @@ public class Note implements Serializable {
 
 
     public Note(String title, String content, Date modifiedDate, Date createdDate) {
-        //this.noteIndex = noteIndex;
         this.title = title;
         this.content = content;
         this.modifiedDate = modifiedDate;

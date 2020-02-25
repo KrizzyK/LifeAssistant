@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.room.Room;
 
 import com.example.lifeassistant.BaseDrawerActivity;
-import com.example.lifeassistant.Note.RoomDatabase.NoteDatabase;
+import com.example.lifeassistant.Note.NoteDatabase.NoteDatabase;
 import com.example.lifeassistant.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
