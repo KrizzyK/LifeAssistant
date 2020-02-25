@@ -45,16 +45,19 @@ public class BaseDrawerActivity extends AppCompatActivity { // drawer and naviga
                 switch(menuItem.getItemId()) {
                     case R.id.notes:
                         startActivity(new Intent(getApplicationContext(), NoteListActivity.class));
+                        finish();
                         break;
                     case R.id.startingScreen:
                         startActivity(new Intent(getApplicationContext(),StartScreenActivity.class));
+                        finish();
                         break;
                     case R.id.counters:
                         startActivity(new Intent(getApplicationContext(), CounterActivity.class));
+                        finish();
                         break;
 
                 }
-                drawerLayout.closeDrawers();
+                drawerLayout.closeDrawer(GravityCompat.START, false);
                 return false;
             }
         });

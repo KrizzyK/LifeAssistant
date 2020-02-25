@@ -31,14 +31,12 @@ public class NoteRecAdapter extends RecyclerView.Adapter {
         public TextView title;
         public TextView content;
         public TextView modifiedDate;
-        //public TextView createdDate;
 
         public MyViewHolder(View pItem) {
             super(pItem);
             title = (TextView) pItem.findViewById(R.id.noteTitle);
             content = (TextView) pItem.findViewById(R.id.noteContent);
             modifiedDate = (TextView) pItem.findViewById(R.id.noteModifiedDate);
-            //createdDate = (TextView) pItem.findViewById(R.id.cre)
         }
     }
 
