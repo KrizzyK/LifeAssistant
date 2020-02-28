@@ -23,6 +23,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.lifeassistant.Counter.CounterActivity;
+import com.example.lifeassistant.Dictionary.DictionaryActivity;
 import com.example.lifeassistant.Note.NoteListActivity;
 import com.google.android.material.navigation.NavigationView;
 
@@ -53,6 +54,10 @@ public class BaseDrawerActivity extends AppCompatActivity { // drawer and naviga
                         break;
                     case R.id.counters:
                         startActivity(new Intent(getApplicationContext(), CounterActivity.class));
+                        finish();
+                        break;
+                    case R.id.dictionary:
+                        startActivity(new Intent(getApplicationContext(), DictionaryActivity.class));
                         finish();
                         break;
 

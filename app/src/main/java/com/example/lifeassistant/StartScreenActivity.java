@@ -8,10 +8,12 @@ import android.widget.FrameLayout;
 
 import androidx.annotation.Nullable;
 
+import com.example.lifeassistant.Counter.CounterActivity;
+import com.example.lifeassistant.Dictionary.DictionaryActivity;
 import com.example.lifeassistant.Note.NoteListActivity;
 
 public class StartScreenActivity extends BaseDrawerActivity {
-    Button goToNotesButton;
+    Button goToNotesButton, goToCountersButton, goToDicionaryButton;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +24,20 @@ public class StartScreenActivity extends BaseDrawerActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), NoteListActivity.class));
+            }
+        });
+        goToCountersButton = (Button) findViewById(R.id.startToCountersButton);
+        goToCountersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), CounterActivity.class));
+            }
+        });
+        goToDicionaryButton = (Button) findViewById(R.id.startToDicionaryButton);
+        goToDicionaryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), DictionaryActivity.class));
             }
         });
     }

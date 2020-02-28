@@ -8,4 +8,7 @@
     <color name="textColor">#FFFF</color>
     <color name="toolbarColor">#1D1D1D</color>
     <color name="counterColor">#1D1D1D</color>
+    <color name="noteButtonColor">#00574B</color>
+    <color name="counterButtonColor">#B40000</color>
+    <color name="dictionaryButtonColor">#FDE100</color>
 </resources>

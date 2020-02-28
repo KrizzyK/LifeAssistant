@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="nav_view">
     <group android:checkableBehavior="single">
-        <item android:title="Notes"
-            android:icon="@color/colorAccent"
-            android:id="@+id/notes"/>
         <item android:title="Home"
             android:icon="@drawable/abc_vector_test"
             android:id="@+id/startingScreen"/>
+        <item android:title="Notes"
+            android:icon="@color/colorAccent"
+            android:id="@+id/notes"/>
         <item android:title="Counters"
             android:icon="@color/colorAccent"
             android:id="@+id/counters"/>
+        <item android:title="Dictionary"
+            android:icon="@color/colorAccent"
+            android:id="@+id/dictionary"/>
     </group>
 
     <item android:title="Druga grupa">

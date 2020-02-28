@@ -47,14 +47,14 @@ public class NoteRecAdapter extends RecyclerView.Adapter {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.single_note_layout, parent, false);
                 view.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) { // kiedy wciskamy notatke, przechodze do nowego Activity ( otwarta notatka )
-                int itemPosition = mRecyclerView.getChildLayoutPosition(view);
-                Note item = notesList.get(itemPosition);
-                Intent intent = new Intent(view.getContext(), OpenedNoteActivity.class);
-                intent.putExtra("passedNote",item);
-                intent.putExtra("noteIndex", itemPosition);
-                ((Activity)view.getContext()).startActivityForResult(intent, 2); // changing existing one -> 2
+                    @Override
+                    public void onClick(View view) { // kiedy wciskamy notatke, przechodze do nowego Activity ( otwarta notatka )
+                        int itemPosition = mRecyclerView.getChildLayoutPosition(view);
+                        Note item = notesList.get(itemPosition);
+                        Intent intent = new Intent(view.getContext(), OpenedNoteActivity.class);
+                        intent.putExtra("passedNote",item);
+                        intent.putExtra("noteIndex", itemPosition);
+                        ((Activity)view.getContext()).startActivityForResult(intent, 2); // changing existing one -> 2
             }
         });
         return new MyViewHolder(view);

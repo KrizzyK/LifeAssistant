@@ -11,14 +11,28 @@
         android:layout_height="wrap_content"
         android:text="Hello, it's a starting screen"
         android:textAlignment="center"
-        android:textColor="@color/textColor"/>
+        android:textColor="@color/textColor" />
 
     <Button
         android:id="@+id/startToNotesButton"
         android:layout_width="match_parent"
         android:layout_height="95dp"
-        android:background="@color/primaryAppDarkColor"
+        android:background="@color/noteButtonColor"
         android:text="Go To Notes"
+        android:textColor="@color/textColor"/>
+    <Button
+        android:id="@+id/startToCountersButton"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:background="@color/counterButtonColor"
+        android:text="Go To Counters"
+        android:textColor="@color/textColor" />
+    <Button
+        android:id="@+id/startToDicionaryButton"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:background="@color/dictionaryButtonColor"
+        android:text="Go To Dictionary"
         android:textColor="@color/textColor" />
 
 </LinearLayout>
