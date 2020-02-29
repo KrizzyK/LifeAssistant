@@ -34,5 +34,12 @@
         android:background="@color/dictionaryButtonColor"
         android:text="Go To Dictionary"
         android:textColor="@color/textColor" />
+    <Button
+        android:id="@+id/startToStackButton"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:background="@color/toDoStackButtonColor"
+        android:text="Go To ToDoStack"
+        android:textColor="@color/textColor" />
 
 </LinearLayout>

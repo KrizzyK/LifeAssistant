@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.example.lifeassistant.BaseDrawerActivity;
-import com.example.lifeassistant.Counter.CounterDatabase.CounterDatabase;
+import com.example.lifeassistant.Database.CounterDatabase.CounterDatabase;
 import com.example.lifeassistant.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

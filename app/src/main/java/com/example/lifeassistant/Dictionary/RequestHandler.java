@@ -52,8 +52,7 @@ public class RequestHandler extends AsyncTask<URL, Void, List<String>> {
         return definitions;
     }
 
+    @Override
     protected void onPostExecute(List<String> definitions) {
-
-
     }
 }

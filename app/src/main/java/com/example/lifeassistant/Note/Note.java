@@ -6,7 +6,7 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-import com.example.lifeassistant.Note.NoteDatabase.DateConverter;
+import com.example.lifeassistant.Database.DateConverter;
 
 import java.io.Serializable;
 import java.text.DateFormat;

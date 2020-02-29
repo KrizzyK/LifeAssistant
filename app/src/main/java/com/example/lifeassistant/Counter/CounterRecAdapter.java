@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.lifeassistant.Counter.CounterDatabase.CounterDatabase;
+import com.example.lifeassistant.Database.CounterDatabase.CounterDatabase;
 import com.example.lifeassistant.R;
 
 import java.util.ArrayList;

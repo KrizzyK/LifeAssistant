@@ -1,4 +1,4 @@
-package com.example.lifeassistant.Counter.CounterDatabase;
+package com.example.lifeassistant.Database.CounterDatabase;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;

@@ -11,4 +11,6 @@
     <color name="noteButtonColor">#00574B</color>
     <color name="counterButtonColor">#B40000</color>
     <color name="dictionaryButtonColor">#FDE100</color>
+    <color name="toDoStackButtonColor">#0000FF</color>
+    <color name="taskCardColor">#1D1D1D</color>
 </resources>

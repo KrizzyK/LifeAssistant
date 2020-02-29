@@ -11,9 +11,10 @@ import androidx.annotation.Nullable;
 import com.example.lifeassistant.Counter.CounterActivity;
 import com.example.lifeassistant.Dictionary.DictionaryActivity;
 import com.example.lifeassistant.Note.NoteListActivity;
+import com.example.lifeassistant.ToDoStack.ToDoStackActivity;
 
 public class StartScreenActivity extends BaseDrawerActivity {
-    Button goToNotesButton, goToCountersButton, goToDicionaryButton;
+    Button goToNotesButton, goToCountersButton, goToDicionaryButton, goToToDoStackButton;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +39,13 @@ public class StartScreenActivity extends BaseDrawerActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), DictionaryActivity.class));
+            }
+        });
+        goToToDoStackButton = (Button) findViewById(R.id.startToStackButton);
+        goToToDoStackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ToDoStackActivity.class));
             }
         });
     }

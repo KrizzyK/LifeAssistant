@@ -1,4 +1,4 @@
-package com.example.lifeassistant.Note.NoteDatabase;
+package com.example.lifeassistant.Database.NoteDatabase;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;

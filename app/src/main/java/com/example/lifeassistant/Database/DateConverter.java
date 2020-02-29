@@ -1,4 +1,4 @@
-package com.example.lifeassistant.Note.NoteDatabase;
+package com.example.lifeassistant.Database;
 
 import androidx.room.TypeConverter;
 
