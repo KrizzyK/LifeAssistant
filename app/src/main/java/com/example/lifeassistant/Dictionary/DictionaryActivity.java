@@ -73,7 +73,7 @@ public class DictionaryActivity extends BaseDrawerActivity {
     private void initializeSpinner() {
         languageSpinner = findViewById(R.id.languageSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.spinner_array, R.layout.spinner_item);
+                R.array.languages_array, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         languageSpinner.setAdapter(adapter);
         languageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

@@ -13,4 +13,8 @@
     <color name="dictionaryButtonColor">#FDE100</color>
     <color name="toDoStackButtonColor">#0000FF</color>
     <color name="taskCardColor">#1D1D1D</color>
+    <color name="low_priority_color">#1B5E20</color>
+    <color name="medium_priority_color">#F57F17</color>
+    <color name="high_priority_color">#BF360C</color>
+    <color name="urgent_priority_color">#B71C1C</color>
 </resources>

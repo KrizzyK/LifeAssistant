@@ -11,6 +11,7 @@
     android:paddingLeft="10dp"
     >
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/taskCardColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/taskCardColor">
@@ -23,6 +24,8 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:text="Task"
+            android:textSize="20sp"
+            android:paddingBottom="5dp"
             android:textColor="@color/textColor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -46,53 +49,46 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
-                    app:srcCompat="@color/counterButtonColor" />
+                    android:background="@drawable/plusv2" />
 
                 <ImageButton
                     android:id="@+id/editTaskButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/trash" />
+                    android:background="@drawable/editbuttonwhite" />
 
                 <ImageButton
                     android:id="@+id/deleteTaskButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/minusv2" />
+                   android:background="@drawable/trashwhite" />
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/uselessButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="uselessButton" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/timeLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="4dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Timeleft:"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
             android:textColor="@color/textColor"
             android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="@id/deadLineDate"
+            app:layout_constraintTop_toBottomOf="@id/taskName"
             app:layout_constraintStart_toStartOf="parent" />
         <TextView
-            android:id="@+id/deadLineDate"
+            android:id="@+id/deadLine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Yo mama"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:paddingBottom="5dp"
             android:textSize="10sp"
             android:textColor="@color/textColor"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/timeLeft"
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

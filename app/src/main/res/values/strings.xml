@@ -4,11 +4,17 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string-array name="spinner_array">
+    <string-array name="languages_array">
         <item>English</item>
         <item>Spanish</item>
         <item>Swedish</item>
         <item>Romanian</item>
         <item>Latvian</item>
+    </string-array>
+    <string-array name="priorities_array">
+        <item>LOW</item>
+        <item>MEDIUM</item>
+        <item>HIGH</item>
+        <item>URGENT</item>
     </string-array>
 </resources>

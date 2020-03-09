@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -74,7 +73,6 @@ public class NoteListActivity extends BaseDrawerActivity {
                     adapter.notifyItemRemoved(noteIndex);
                     break;
             }
-            Toast.makeText(this, "Deleted note.", Toast.LENGTH_SHORT).show();
         }
     }
 
