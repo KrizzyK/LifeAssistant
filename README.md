@@ -1,5 +1,6 @@
 # LifeAssistant
-.
+Code in "https://github.com/KrizzyK/LifeAssistant/tree/master/app/src/main"
+
 Android app written in Java, IDE - Android Studio.
 
 The app is made for my own usage. It currently has few functions, such as note keeper, dictionary, counters. Currently working on "ToDoStack", 
